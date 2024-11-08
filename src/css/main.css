@@ -1,0 +1,277 @@
+/*
+	@modCssClasses
+	@customTag: button-state
+	@cssMod: mod_sideButton
+	@cssMod: mod_forcedSideButton
+	@cssMod: mod_callToAction
+	@cssMod: mod_alignCenter
+	@cssMod: mod_small
+	@cssMod: mod_hiddenIcon
+	--theme-errorFont 							rgba(255, 68, 68, 1)
+	--theme-inputBackgroundColor 				rgba(0, 0, 0, 0)
+	--theme-modal-boxShadow 					rgba(0, 0, 0, 1)
+	--theme-modalButton-backgroundColor 		rgba(68, 68, 255, 1)
+	--theme-modalButton-backgroundColorFocus 	rgba(87, 87, 255, 1)
+	--theme-modalText-color 					rgba(255, 255, 255, 1)
+	--theme-successBackgroundColor 				rgba(0, 185, 64, 1)
+	--theme-transitionDuration 					0.15s
+*/
+
+
+
+
+button-state {
+	display: flex;
+	margin-top: 0;
+	margin-right: 0;
+	margin-bottom: 4rem;
+	margin-left: 0;
+	position: relative;
+	width: 100%;
+	background-color: var(--theme-inputBackgroundColor, rgba(0, 0, 0, 0));
+	flex-direction: row-reverse;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+button-state.mod_sideButton {
+	width: unset;
+}
+
+button-state.mod_callToAction {
+	justify-content: center;
+}
+
+button-state.mod_alignCenter {
+	justify-content: center;
+}
+
+button-state .core {
+	background-color: var(--theme-modalButton-backgroundColor, rgba(68, 68, 255, 1));
+	padding-top: 0;
+	padding-right: 3rem;
+	padding-bottom: 0;
+	padding-left: 3rem;
+	border-top-left-radius: 0.5rem;
+	border-top-right-radius: 0.5rem;
+	border-bottom-right-radius: 0.5rem;
+	border-bottom-left-radius: 0.5rem;
+	cursor: pointer;
+	min-width: 14rem;
+	transition-property: background-color;
+	transition-duration: var(--theme-transitionDuration, 0.15s);
+	position: relative;
+}
+
+button-state .core:focus, button-state .core:hover {
+	background-color: var(--theme-modalButton-backgroundColorFocus, rgba(87, 87, 255, 1));
+}
+
+button-state.mod_sideButton .core {
+	padding-right: 0;
+	padding-left: 0;
+	min-height: 4.2rem;
+	max-width: 4.2rem;
+	min-width: 4.2rem;
+}
+
+button-state.mod_callToAction .core {
+	padding-right: 2rem;
+	padding-left: 2rem;
+	min-width: unset;
+}
+
+button-state.mod_sideButton .core.loading {
+	background-color: var(--theme-modal-boxShadow, rgba(0, 0, 0, 1));
+}
+
+button-state .core.success {
+	background-color: var(--theme-successBackgroundColor, rgba(0, 185, 64, 1));
+}
+
+button-state.mod_sideButton .core.success {
+	background-color: var(--theme-successBackgroundColor, rgba(0, 185, 64, 1));
+}
+
+button-state .core.failure {
+	background-color: var(--theme-errorFont, rgba(255, 68, 68, 1));
+}
+
+button-state.red .core {
+	background-color: var(--theme-errorFont, rgba(255, 68, 68, 1));
+}
+
+button-state .core p {
+	line-height: 3rem;
+	color: var(--theme-modalText-color, rgba(255, 255, 255, 1));
+	text-transform: uppercase;
+	font-weight: 900;
+	text-align: center;
+	letter-spacing: 0.5px;
+}
+
+button-state.mod_sideButton .core .textElem {
+	display: none;
+}
+
+button-state.mod_callToAction .core .textElem, button-state.mod_small .core .textElem {
+	text-transform: unset;
+	font-weight: 600;
+	letter-spacing: 0;
+}
+
+button-state .core .icon {
+	display: flex;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 3rem;
+	height: 3rem;
+	justify-content: center;
+	align-items: center;
+}
+
+button-state.mod_sideButton .core .icon {
+	width: 4.2rem;
+	height: 4.2rem;
+}
+
+button-state .core .icon svg {
+	width: 33%;
+	fill: var(--theme-modalText-color, rgba(255, 255, 255, 1));
+	transition-property: fill;
+	transition-duration: var(--theme-transitionDuration, 0.15s);
+}
+
+button-state.mod_sideButton .core .icon svg {
+	width: 1.5rem;
+	fill: var(--theme-modalText-color, rgba(255, 255, 255, 1));
+}
+
+button-state.mod_sideButton .core.failure .icon svg {
+	fill: var(--theme-modalText-color, rgba(255, 255, 255, 1));
+}
+
+button-state.mod_callToAction .core .icon svg {
+	width: 0;
+}
+
+button-state.mod_hiddenIcon .core .icon {
+	opacity: 0;
+	transition-property: opacity;
+	transition-duration: var(--theme-transitionDuration, 0.15s);
+}
+
+
+
+
+@media only screen and (max-device-width: 1024px) {
+
+	button-state.mod_callToAction {
+		position: fixed;
+		bottom: 4rem;
+		margin-bottom: 0;
+		right: 2.5vw;
+		width: max-content;
+	}
+
+	button-state.mod_callToAction .core {
+		width: calc(4vw + 4vh);
+		height: calc(4vw + 4vh);
+		padding-top: 0;
+		padding-right: 0;
+		padding-bottom: 0;
+		padding-left: 0;
+		border-top-left-radius: 500px;
+		border-top-right-radius: 500px;
+		border-bottom-right-radius: 500px;
+		border-bottom-left-radius: 500px;
+	}
+
+	button-state.mod_callToAction .core .textElem {
+		display: none;
+	}
+
+	button-state.mod_callToAction .core .icon {
+		width: calc(4vw + 4vh);
+		height: calc(4vw + 4vh);
+	}
+
+	button-state.mod_callToAction .core .icon svg {
+		width: calc(2vw + 2vh);
+		height: calc(2vw + 2vh);
+	}
+
+}
+
+
+
+
+@media only screen and (max-device-width: 680px) {
+
+	button-state.mod_sideButton {
+		width: 100%;
+	}
+
+	button-state.mod_sideButton.mod_forcedSideButton {
+		width: unset;
+	}
+
+	button-state.mod_sideButton .core {
+		background-color: var(--theme-modalButton-backgroundColor, rgba(68, 68, 255, 1));
+		padding-top: 0;
+		padding-right: 3rem;
+		padding-bottom: 0;
+		padding-left: 3rem;
+		min-width: 14rem;
+		min-height: 3rem;
+	}
+
+	button-state.mod_sideButton.mod_forcedSideButton .core {
+		padding-right: 0;
+		padding-left: 0;
+		min-height: 4.2rem;
+		min-width: 4.2rem;
+	}
+
+	button-state.mod_sideButton .core.success {
+		background-color: var(--theme-successBackgroundColor, rgba(0, 185, 64, 1));
+	}
+
+	button-state.mod_sideButton .core.failure {
+		background-color: var(--theme-errorFont, rgba(255, 68, 68, 1));
+	}
+
+	button-state.mod_sideButton .core .textElem {
+		display: block;
+		text-transform: none;
+		font-weight: 600;
+	}
+
+	button-state.mod_sideButton.mod_forcedSideButton .core .textElem {
+		display: none;
+	}
+
+	button-state.mod_sideButton .core .icon {
+		width: 3rem;
+		height: 3rem;
+	}
+
+	button-state.mod_sideButton.mod_forcedSideButton .core .icon {
+		width: 4.2rem;
+		height: 4.2rem;
+	}
+
+}
+
+
+
+
+@media only screen and (max-device-width: 350px) {
+
+	button-state .core {
+		min-width: unset;
+		width: 100%;
+	}
+
+}
