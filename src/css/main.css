@@ -4,6 +4,7 @@
 	@cssMod: mod_sideButton
 	@cssMod: mod_forcedSideButton
 	@cssMod: mod_callToAction
+	@cssMod: mod_full
 	@cssMod: mod_alignCenter
 	@cssMod: mod_small
 	@cssMod: mod_hiddenIcon
@@ -67,6 +68,11 @@ button-state .core:focus, button-state .core:hover {
 	background-color: var(--theme-modalButton-backgroundColorFocus, rgba(87, 87, 255, 1));
 }
 
+button-state.mod_full .core {
+	min-width: unset;
+	width: 100%;
+}
+
 button-state.mod_sideButton .core {
 	padding-right: 0;
 	padding-left: 0;
@@ -108,6 +114,14 @@ button-state .core p {
 	font-weight: 900;
 	text-align: center;
 	letter-spacing: 0.5px;
+}
+
+button-state.mod_full .core p {
+	line-height: 4rem;
+	font-size: 1.1rem;
+	text-transform: unset;
+	font-weight: 600;
+	letter-spacing: 0;
 }
 
 button-state.mod_sideButton .core .textElem {
