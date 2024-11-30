@@ -8,6 +8,7 @@
 	@cssMod: mod_alignCenter
 	@cssMod: mod_small
 	@cssMod: mod_hiddenIcon
+	@cssMod: mod_smallText
 	--theme-errorFont 							rgba(255, 68, 68, 1)
 	--theme-inputBackgroundColor 				rgba(0, 0, 0, 0)
 	--theme-modal-boxShadow 					rgba(0, 0, 0, 1)
@@ -122,6 +123,11 @@ button-state.mod_full .core p {
 	text-transform: unset;
 	font-weight: 600;
 	letter-spacing: 0;
+}
+
+button-state.mod_smallText .core p {
+	text-transform: unset;
+	font-weight: 600;
 }
 
 button-state.mod_sideButton .core .textElem {
