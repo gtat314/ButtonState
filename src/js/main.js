@@ -221,6 +221,35 @@ ButtonState.prototype.setStates = function( states ) {
 
 };
 
+/**
+ * 
+ * @returns {String|null}
+ */
+ButtonState.prototype.getHref = function() {
+
+    if ( this._parentElem.hasAttribute( 'href' ) ) {
+
+        return this._parentElem.getAttribute( 'href' );
+
+    } else {
+
+        return null;
+
+    }
+
+};
+
+/**
+ * 
+ * @param {String} href 
+ * @returns {void}
+ */
+ButtonState.prototype.setHref = function( href ) {
+
+    this._parentElem.setAttribute( 'href', href );
+
+};
+
 
 
 
