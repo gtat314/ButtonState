@@ -9,6 +9,7 @@
 	@cssMod: mod_small
 	@cssMod: mod_hiddenIcon
 	@cssMod: mod_smallText
+	@cssMod: mod_iconOnly
 	--theme-errorFont 							rgba(255, 68, 68, 1)
 	--theme-inputBackgroundColor 				rgba(0, 0, 0, 0)
 	--theme-modal-boxShadow 					rgba(0, 0, 0, 1)
@@ -34,6 +35,10 @@ button-state {
 	flex-direction: row-reverse;
 	align-items: center;
 	justify-content: flex-start;
+}
+
+button-state.mod_iconOnly {
+	width: unset;
 }
 
 button-state.mod_sideButton {
@@ -67,6 +72,12 @@ button-state .core {
 
 button-state .core:focus, button-state .core:hover {
 	background-color: var(--theme-modalButton-backgroundColorFocus, rgba(87, 87, 255, 1));
+}
+
+button-state.mod_iconOnly .core {
+	padding-right: 0;
+	padding-left: 0;
+	min-width: unset;
 }
 
 button-state.mod_full .core {
@@ -117,6 +128,10 @@ button-state .core p {
 	letter-spacing: 0.5px;
 }
 
+button-state.mod_iconOnly .core p {
+	display: none;
+}
+
 button-state.mod_full .core p {
 	line-height: 4rem;
 	font-size: 1.1rem;
@@ -151,6 +166,10 @@ button-state .core .icon {
 	align-items: center;
 }
 
+button-state.mod_iconOnly .core .icon {
+	position: static;
+}
+
 button-state.mod_sideButton .core .icon {
 	width: 4.2rem;
 	height: 4.2rem;
@@ -161,6 +180,10 @@ button-state .core .icon svg {
 	fill: var(--theme-modalText-color, rgba(255, 255, 255, 1));
 	transition-property: fill;
 	transition-duration: var(--theme-transitionDuration, 0.15s);
+}
+
+button-state.mod_iconOnly .core .icon svg {
+	width: 66%;
 }
 
 button-state.mod_sideButton .core .icon svg {
