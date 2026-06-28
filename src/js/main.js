@@ -52,6 +52,13 @@ function ButtonState( schema ) {
     this._schema = schema;
 
     /**
+     * @property
+     * @private
+     * @type {Number} integer
+     */
+    this._stateTimeout = null;
+
+    /**
      * 
      * @property
      * @private
@@ -82,11 +89,11 @@ function ButtonState( schema ) {
 
 
 
-    if ( typeof this._schema.parent === 'object' ) {
+    if ( this._schema.parent instanceof HTMLElement ) {
 
         this._parentElem = this._schema.parent;
 
-    } else if ( typeof this._schema.parent === 'string' ) {
+    } else {
 
         this._parentElem = document.querySelector( this._schema.parent );
 
@@ -129,8 +136,22 @@ function ButtonState( schema ) {
  */
 ButtonState.prototype.setState = function( stateName ) {
 
+    if ( this._stateTimeout ) {
+
+        clearTimeout( this._stateTimeout );
+        this._stateTimeout = null;
+
+    }
+
+    if ( this._schema.states.hasOwnProperty( stateName ) === false ) {
+
+        return;
+
+    }
+
     this._wrapElem.className = '';
     this._wrapElem.classList.add( stateName, 'core' );
+
     this._textElem.innerHTML = this._schema.states[ stateName ].text;
 
     if ( this._iconElem !== null ) {
@@ -151,7 +172,7 @@ ButtonState.prototype.setState = function( stateName ) {
 
     if ( this._schema.states[ stateName ].hasOwnProperty( 'duration' ) ) {
 
-        setTimeout( function(){
+        this._stateTimeout = setTimeout( function(){
 
             this.setState( 'default' );
 
@@ -249,9 +270,6 @@ ButtonState.prototype.setHref = function( href ) {
     this._parentElem.setAttribute( 'href', href );
 
 };
-
-
-
 
 /**
  * 
