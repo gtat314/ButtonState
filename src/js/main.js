@@ -29,9 +29,9 @@
  * @param {String}                  [schema.form]
  * @param {String}                  [schema.value]
  * @param {Number}                  [schema.tabindex]
- * @param {URL}                     [schema.href]
  * @param {String}                  [schema.title]
  * @param {Object}                  [schema.link]
+ * @param {String}                   schema.link.url
  * @param {URL}                     [schema.link.download]
  * @param {Object}                  [schema.states]
  * @param {HTMLSourceElement}       [schema.states[].text]
@@ -248,9 +248,9 @@ ButtonState.prototype.setStates = function( states ) {
  */
 ButtonState.prototype.getHref = function() {
 
-    if ( this._parentElem.hasAttribute( 'href' ) ) {
+    if ( this._wrapElem.hasAttribute( 'href' ) ) {
 
-        return this._parentElem.getAttribute( 'href' );
+        return this._wrapElem.getAttribute( 'href' );
 
     } else {
 
@@ -267,7 +267,7 @@ ButtonState.prototype.getHref = function() {
  */
 ButtonState.prototype.setHref = function( href ) {
 
-    this._parentElem.setAttribute( 'href', href );
+    this._wrapElem.setAttribute( 'href', href );
 
 };
 
@@ -296,12 +296,6 @@ ButtonState.prototype._createFromHTML = function() {
  */
 ButtonState.prototype._createFromSchema = function() {
 
-    if ( this._schema.hasOwnProperty( 'href' ) ) {
-
-        this._parentElem.setAttribute( 'href', this._schema.href );
-
-    }
-
     if ( this._schema.hasOwnProperty( 'title' ) ) {
 
         this._parentElem.setAttribute( 'title', this._schema.title );
@@ -313,7 +307,7 @@ ButtonState.prototype._createFromSchema = function() {
     if ( this._schema.hasOwnProperty( 'link' ) ) {
 
         this._wrapElem = document.createElement( 'A' );
-        this._wrapElem.setAttribute( 'href', this._schema.link );
+        this._wrapElem.setAttribute( 'href', this._schema.link.url );
 
         if ( this._schema.link.hasOwnProperty( 'download' ) ) {
 
