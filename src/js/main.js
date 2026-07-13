@@ -66,7 +66,7 @@ function ButtonState( schema ) {
 
 
 
-    if ( this._schema.parent instanceof HTMLElement ) {
+    if ( typeof this._schema.parent === 'object' ) {
 
         this._parentElem = this._schema.parent;
 
