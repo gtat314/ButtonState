@@ -208,7 +208,7 @@ button-state.mod_hiddenIcon .core .icon {
 
 
 
-@media only screen and (max-device-width: 1024px) {
+@media only screen and (max-width: 1024px) {
 
 	button-state.mod_callToAction {
 		position: fixed;
@@ -250,7 +250,7 @@ button-state.mod_hiddenIcon .core .icon {
 
 
 
-@media only screen and (max-device-width: 680px) {
+@media only screen and (max-width: 680px) {
 
 	button-state.mod_sideButton {
 		width: 100%;
@@ -310,7 +310,7 @@ button-state.mod_hiddenIcon .core .icon {
 
 
 
-@media only screen and (max-device-width: 350px) {
+@media only screen and (max-width: 350px) {
 
 	button-state .core {
 		min-width: unset;
